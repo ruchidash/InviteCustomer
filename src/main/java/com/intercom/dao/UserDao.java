@@ -2,7 +2,6 @@ package com.intercom.dao;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,8 +13,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.intercom.entity.Location;
 import com.intercom.entity.User;
 import com.intercom.exception.InvalidInputException;
-import com.intercom.service.ConnectionHelper;
+import com.intercom.service.impl.ConnectionHelper;
 
+// TODO: Create an interface UserDao and rename this to UserDaoFile
 public class UserDao {
 
 	public static List<User> getAllUsers() throws FileNotFoundException, IOException, InvalidInputException {
@@ -39,17 +39,6 @@ public class UserDao {
 
 		}
 		return users;
-	}
-
-	public static void registerUsers(List<User> users) throws InvalidInputException {
-		try (PrintWriter output = ConnectionHelper.getOutputConnection();) {
-			users.stream().forEach(user -> {
-				output.println(user);
-			});
-
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
 	}
 
 }

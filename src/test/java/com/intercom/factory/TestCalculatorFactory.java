@@ -3,10 +3,12 @@ package com.intercom.factory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+
 import org.junit.jupiter.api.Test;
-import com.intercom.entity.Calculator;
-import com.intercom.entity.KilometerCalculator;
-import com.intercom.entity.NauticalMileCalculator;
+
+import com.intercom.calculator.impl.MileCalculator;
+import com.intercom.calculator.impl.KilometerCalculator;
+import com.intercom.calculator.impl.NauticalMileCalculator;
 
 class TestCalculatorFactory {
 
@@ -19,7 +21,7 @@ class TestCalculatorFactory {
 	@Test
 	void testGetMileCalculator() {
 		assertNotNull(CalculatorFactory.getCalculator('M'));
-		assertEquals(Calculator.class, CalculatorFactory.getCalculator('M').getClass());
+		assertEquals(MileCalculator.class, CalculatorFactory.getCalculator('M').getClass());
 	}
 
 	@Test

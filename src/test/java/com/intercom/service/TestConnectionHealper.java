@@ -8,6 +8,7 @@ import java.io.IOException;
 import org.junit.jupiter.api.Test;
 
 import com.intercom.exception.InvalidInputException;
+import com.intercom.service.impl.ConnectionHelper;
 
 class TestConnectionHealper {
 

@@ -1,6 +1,6 @@
-package com.intercom.service;
+package com.intercom.service.impl;
 
-public class Converter {
+public class AngleConverter {
 	public static double degToRad(double deg) {
 		return (deg * Math.PI / 180.0);
 	}
