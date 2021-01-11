@@ -1,5 +1,8 @@
 # InviteCustomer
 
+## Output
+See the already generated [output](https://github.com/ruchidash/InviteCustomer/blob/main/src/main/resources/output/output.txt)
+
 - Clone the repository
 - Run all commands from the root directory of the repository
 
