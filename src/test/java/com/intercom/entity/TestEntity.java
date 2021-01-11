@@ -22,7 +22,7 @@ class TestEntity {
 	void testSecondGetDistanceByLatituteAndLongitude() {
 		try {
 			assertEquals(265.5185873477439, new KilometerCalculator()
-					.calculateDistance(new Location(53.339428, -6.257664), new Location(53.339428, -10.257664)));
+					.calculateDistance(new Location(53.339428, -6.257664), new Location(53.339428, -10.257664)), 0.001);
 		} catch (InvalidLocationException e) {
 			e.printStackTrace();
 		}
@@ -32,7 +32,7 @@ class TestEntity {
 	void testGetDistanceByInvalidLatituteAndLongitude() {
 		try {
 			assertEquals(1.609344 * Double.MAX_VALUE, new KilometerCalculator()
-					.calculateDistance(new Location(53.339428, -6.257664), new Location(93.339428, -10.257664)));
+					.calculateDistance(new Location(53.339428, -6.257664), new Location(93.339428, -10.257664)), 0.001);
 		} catch (InvalidLocationException e) {
 			e.printStackTrace();
 		}
