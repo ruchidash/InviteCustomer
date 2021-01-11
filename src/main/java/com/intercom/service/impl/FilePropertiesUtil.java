@@ -30,7 +30,7 @@ public class FilePropertiesUtil {
 				properties.load(inStream);
 
 			} catch (InvalidInputException | IOException e) {
-				throw new InvalidInputException("Fail to retrieve property type");
+				throw new InvalidInputException("Fail to retrieve property type " + propType);
 			}
 
 		}
@@ -40,9 +40,9 @@ public class FilePropertiesUtil {
 	private static String getPropertyType() {
 		String propType = "";
 		propType = System.getenv().get("PROPERTY_TYPE");
-		if (propType == null)
+		if (propType == null || propType.isEmpty())
 			propType = System.getProperty("PROPERTY_TYPE");
-		if (propType == null)
+		if (propType == null || propType.isEmpty())
 			propType = "test";
 		return propType;
 	}
