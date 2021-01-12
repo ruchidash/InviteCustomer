@@ -39,3 +39,6 @@ users_output_file_name=output.txt
 ```
 - To pick a particular configuration (test/prod) you can pass as JVM system property or set environment variable
 `PROPERTY_TYPE=test`
+
+## Class Diagram
+![Class Diagram](Class_Diagram.png)
