@@ -3,10 +3,11 @@ package com.intercom.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
-import com.intercom.calculator.impl.KilometerCalculator;
 import com.intercom.entity.Location;
 import com.intercom.entity.User;
 import com.intercom.exception.InvalidInputException;
@@ -51,13 +52,13 @@ class TestLocationService {
 
 	@Test
 	void testGetUsersWithinRange() throws InvalidLocationException, InvalidInputException {
-		List<User> users = LocationService.getUsersWithinRange(UserService.getAllUsers(), new KilometerCalculator(),
+		List<User> users = LocationService.getUsersWithinRange(UserService.getAllUsers(), 'K',
 				LocationService.getOfficeLocation("dublin"), 100);
 		assertNotNull(users);
 
 		assertEquals(16, users.size());
 
-		users = LocationService.getUsersWithinRange(UserService.getAllUsers(), new KilometerCalculator(),
+		users = LocationService.getUsersWithinRange(UserService.getAllUsers(), 'K',
 				LocationService.getOfficeLocation("dublin"), 50);
 		assertNotNull(users);
 
@@ -67,14 +68,14 @@ class TestLocationService {
 	@Test
 	void testGetUsersWithinRangeFromInvalidOffice() {
 		assertThrows(InvalidLocationException.class, () -> {
-			LocationService.getUsersWithinRange(UserService.getAllUsers(), new KilometerCalculator(),
+			LocationService.getUsersWithinRange(UserService.getAllUsers(), 'K',
 					LocationService.getOfficeLocation("jupiter"), 100);
 		});
 	}
 
 	@Test
 	void testGetUsersExactlyAtOfficeLocation() throws InvalidLocationException, InvalidInputException {
-		List<User> users = LocationService.getUsersWithinRange(UserService.getAllUsers(), new KilometerCalculator(),
+		List<User> users = LocationService.getUsersWithinRange(UserService.getAllUsers(), 'K',
 				LocationService.getOfficeLocation("dublin"), 0);
 
 		assertEquals(0, users.size());
